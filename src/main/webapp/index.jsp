@@ -10,10 +10,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Index Page</title>
+        <title>ClickToBuy-Home</title>
+        
+        <%@include file="components/common_css_js.jsp" %>
+    
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="components/navbar.jsp" %>
+        <h1>Hello World!</h1> 
         <h1>Creating Session Factory Obj</h1>
         <%
         out.println(FactoryProvider.getFactory());
