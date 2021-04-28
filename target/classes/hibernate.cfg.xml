@@ -10,11 +10,11 @@ and open the template in the editor.
 <hibernate-configuration>
     <session-factory>
         
-        <property name="connection.driver_class" value="com.mysql.jdbc.Driver"/>
-          <property name="connection.url" value="jdbc:mysql://localhost:3306/mycart"/>
-          <property name="connection.username" value="root"/>
-          <property name="connection.password" value="admin"/>
-          <property name="dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+          <property name="connection.url">jdbc:mysql://localhost:3306/mycart</property>
+          <property name="connection.username" >root</property>
+          <property name="connection.password">admin</property>
+          <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
           <property name="hbm2ddl.auto">update</property>
           <property name="show_sql">true</property>
           
