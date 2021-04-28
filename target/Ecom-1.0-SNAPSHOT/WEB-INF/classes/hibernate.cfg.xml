@@ -18,6 +18,12 @@ and open the template in the editor.
           <property name="hbm2ddl.auto">update</property>
           <property name="show_sql">true</property>
           
+          <mapping class="com.learn.Ecom.entities.User"/>
+          <mapping class="com.learn.Ecom.entities.Category"/>
+          <mapping class="com.learn.Ecom.entities.Product"/>
+         
+          
+          
           
           
                 

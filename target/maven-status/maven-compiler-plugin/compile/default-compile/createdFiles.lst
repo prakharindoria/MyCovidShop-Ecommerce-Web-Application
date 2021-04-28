@@ -1,1 +1,4 @@
 com\learn\Ecom\helper\FactoryProvider.class
+com\learn\Ecom\entities\Category.class
+com\learn\Ecom\entities\User.class
+com\learn\Ecom\entities\Product.class
