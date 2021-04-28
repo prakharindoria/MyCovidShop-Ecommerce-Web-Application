@@ -8,6 +8,6 @@
     </head>
     <body>
           <%@include file="components/navbar.jsp" %>
-        <h1>About Page</h1>
+        <h1>About Page for Click To Buy.</h1>
     </body>
 </html>
