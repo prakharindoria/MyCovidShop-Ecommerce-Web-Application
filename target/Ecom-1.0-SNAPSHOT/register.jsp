@@ -14,38 +14,39 @@
     </head>
     <body>
         <%@include file="components/navbar.jsp" %>
-
-
-        <div class="row mt-5">
+        <div class="container-fluid">
+                    <div class="row mt-5">
             <div class="col-md-4 offset-md-4"> 
                 <div class="card">
                     <div class="card-body px-5">
+                        
+                        <img class="rounded mx-auto d-block" src="https://img.icons8.com/clouds/100/26e07f/add-user-male.png"/>
 
                         <h1 class="text-center" my-3>Sign Up</h1>
-                        <form>
+                        <form action="RegisterServlet" method="post">
                             <div class="form-group">
                                 <label for="name">User Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter here">   
+                                <input name="user_name" type="text" class="form-control" id="name" placeholder="Enter here">   
                             </div>
 
                             <div class="form-group">
                                 <label for="Email">User Email</label>
-                                <input type="text" class="form-control" id="Email" placeholder="Enter here">   
+                                <input name="user_email" type="text" class="form-control" id="Email" placeholder="Enter here">   
                             </div>
 
                             <div class="form-group">
                                 <label for="Password">User Password</label>
-                                <input type="Password" class="form-control" id="Password" placeholder="Enter here">   
+                                <input name="user_password" type="Password" class="form-control" id="Password" placeholder="Enter here">   
                             </div>
 
                             <div class="form-group">
                                 <label for="Phone">User Phone</label>
-                                <input type="number" class="form-control" id="Phone" placeholder="Enter here">   
+                                <input name="user_phone"type="number" class="form-control" id="Phone" placeholder="Enter here">   
                             </div>
 
                             <div class="Addressgroup">
                                 <label for="Address">User Address</label>
-                                <textarea style="height:125px" class="form-control" placeholder="Enter Address Here"></textarea>     
+                                <textarea name="user_address" style="height:125px" class="form-control" placeholder="Enter Address Here"></textarea>     
                             </div>
                             <br>
                             <div class="container text-center">
@@ -61,5 +62,8 @@
 
             </div>
         </div>
+        </div>
+
+
     </body>
 </html>
