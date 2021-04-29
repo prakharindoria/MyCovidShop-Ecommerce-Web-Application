@@ -1,18 +1,47 @@
-<%-- 
-    Document   : login
-    Created on : Apr 28, 2021, 8:16:19 PM
-    Author     : prakhar patidar
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
         <%@include file="components/common_css_js.jsp" %>
     </head>
+
     <body>
-        <h1>Login Page</h1>
+        <%@include file="components/navbar.jsp" %>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 offset-md-4">
+                        <div class="card mt-3">
+                            <div class="card-header custom-bg">
+                                <h3>Login</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action="LoginServlet" method="post">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                                    <div class="container  text-center">
+                                        <button type="submit" class="btn btn-outline-success mt-3">Submit</button>
+                                        <button type="reset" class="btn btn-outline-warning mt-3 ml-3">Reset</button>
+                                    </div>
+
+                                    <a href="register.jsp" class="text-center d-block md-3 mt-3">New User? Create an Account</a>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
     </body>
-</html>
+
+    </html>
