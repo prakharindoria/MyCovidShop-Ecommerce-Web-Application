@@ -25,7 +25,7 @@
 
                                         <img class="rounded mx-auto d-block" src="https://img.icons8.com/clouds/100/26e07f/add-user-male.png" />
 
-                                        <h1 class="text-center" my-3>Sign Up</h1>
+                                        <h1 class="text-center">Sign Up</h1>
                                         <form action="RegisterServlet" method="post">
                                             <div class="form-group">
                                                 <label for="name">User Name</label>
