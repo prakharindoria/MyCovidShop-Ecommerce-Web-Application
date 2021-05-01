@@ -24,10 +24,12 @@ else if(user.getUserType().equals("admin")){
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <title>Normal</title>
+                <%@include file="components/common_css_js.jsp" %>
             </head>
 
             <body>
-                <h1>Normal User</h1>
+                <%@include file="components/navbar.jsp" %>
+                    <h1>Normal User</h1>
             </body>
 
             </html>
