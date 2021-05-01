@@ -4,4 +4,5 @@ com\learn\Ecom\entities\User.class
 com\learn\Ecom\servlets\LoginServlet.class
 com\learn\Ecom\helper\FactoryProvider.class
 com\learn\Ecom\servlets\RegisterServlet.class
+com\learn\Ecom\servlets\LogoutServlet.class
 com\learn\Ecom\entities\Product.class
