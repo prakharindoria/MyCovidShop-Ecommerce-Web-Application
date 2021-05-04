@@ -36,7 +36,6 @@ public class Product {
         this.pDiscount = pDiscount;
         this.category = category;
         this.pQuantity = pQuantity;
-        this.category=category;
     }
     
     

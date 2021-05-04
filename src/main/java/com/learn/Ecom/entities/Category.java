@@ -66,6 +66,11 @@ public class Category {
         this.products=products;
     }
 
+    public Category(String categoryTitle, String categoryDescription) {
+        this.categoryTitle = categoryTitle;
+        this.categoryDescription = categoryDescription;
+    }
+
     public Category(int categoryId, String categoryTitle, String categoryDescription) {
         this.categoryId = categoryId;
         this.categoryTitle = categoryTitle;
