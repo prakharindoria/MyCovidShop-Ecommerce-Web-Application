@@ -156,7 +156,7 @@ else if(user.getUserType().equals("normal")){
                                                     </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="ProductOperationServlet" method="post" enctype="multipart/form-data">
+                                                <form action="ProductOperationServlet" method="post">
                                                     <input type="hidden" name="operation" value="addproduct">
 
                                                     <div class="form-group">
@@ -202,14 +202,9 @@ else if(user.getUserType().equals("normal")){
                                                             </form>
                                                         </div>
 
-
-
-
-                                                        <div class="form-group">
-                                                            <div class="container text-center">
-                                                                <button class="btn btn-outline-success mr-2">Add Product</button>
-                                                                <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal">Close</button>
-                                                            </div>
+                                                        <div class="container text-center">
+                                                            <button class="btn btn-outline-success mr-2">Add Product</button>
+                                                            <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal">Close</button>
                                                         </div>
 
                                                 </form>

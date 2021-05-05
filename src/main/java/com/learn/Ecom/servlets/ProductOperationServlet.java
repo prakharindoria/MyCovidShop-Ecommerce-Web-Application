@@ -21,18 +21,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-/**
- *
- * @author prakhar patidar
- */
-@WebServlet(name = "ProductOperationServlet", urlPatterns = {"/ProductOperationServlet"})
 @MultipartConfig
+@WebServlet(name = "ProductOperationServlet", urlPatterns = {"/ProductOperationServlet"})
 public class ProductOperationServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
             String op=request.getParameter("operation");
             if(op.trim().equals("addcategory")){
                 String title = request.getParameter("catTitle");
@@ -54,6 +51,7 @@ public class ProductOperationServlet extends HttpServlet {
             }
             else if(op.trim().equals("addproduct")){
                 //add product
+                System.out.println("In POS");
                 String pName=request.getParameter("proTitle");
                 int pPrice=Integer.parseInt(request.getParameter("proPrice"));
                 int pDiscount=Integer.parseInt(request.getParameter("proDiscount"));
@@ -72,12 +70,13 @@ public class ProductOperationServlet extends HttpServlet {
                 //Save to DB
                 ProductDao pDao = new ProductDao(FactoryProvider.getFactory());
                 int pId=pDao.saveProduct(product);
+                out.println("Product added")
 
                 //Message
-                HttpSession httpSession = request.getSession();
-                httpSession.setAttribute("message","Product Added Successfully : "+ pId);
-                response.sendRedirect("admin.jsp");
-                return;
+//                HttpSession httpSession = request.getSession();
+//                httpSession.setAttribute("message","Product Added Successfully : "+ pId);
+//                response.sendRedirect("admin.jsp");
+//                return;
                 
 
 
