@@ -34,5 +34,16 @@ public class CategoryDao {
             List<Category> list =   query.list();
             return list;
         }
+        public Category getCategoryById(int cId){
+            Category cat =null;
+            try{
+                Session session =this.factory.openSession();
+                cat=session.get(Category.class,cId);
+                session.close();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            return cat;
+        }
     
 }

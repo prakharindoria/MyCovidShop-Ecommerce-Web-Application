@@ -1,7 +1,7 @@
 <%@page import="java.util.List"%>
-<%@page import="com.learn.Ecom.helper.FactoryProvider"%>
-<%@page import="com.learn.Ecom.dao.CategoryDao"%>
-<%@page import="com.learn.Ecom.entities.Category"%>
+    <%@page import="com.learn.Ecom.helper.FactoryProvider"%>
+        <%@page import="com.learn.Ecom.dao.CategoryDao"%>
+            <%@page import="com.learn.Ecom.entities.Category"%>
 
 
                 <%
@@ -152,11 +152,11 @@ else if(user.getUserType().equals("normal")){
                                             <div class="modal-header custom-bg">
                                                 <h5 class="modal-title" id="exampleModalLabel">Fill Product Details</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                     </button>
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="ProductOperationServlet" method="post">
+                                                <form action="ProductOperationServlet" method="post" enctype="multipart/form-data">
                                                     <input type="hidden" name="operation" value="addproduct">
 
                                                     <div class="form-group">
@@ -177,9 +177,9 @@ else if(user.getUserType().equals("normal")){
                                                     <!--product category-->
                                                     <%
 
-                                        CategoryDao cdao= new CategoryDao(FactoryProvider.getFactory());
-                                        List<Category> list= cdao.getCategories();
-                                        %>
+                                                    CategoryDao cdao= new CategoryDao(FactoryProvider.getFactory());
+                                                    List<Category> list= cdao.getCategories();
+                                                    %>
 
                                                         <div class="form-group">
                                                             <label for="select">Select Product Category :</label>
@@ -198,17 +198,18 @@ else if(user.getUserType().equals("normal")){
                                                         <div class="form-group">
                                                             <form action="">
                                                                 <label for="img">Select Product Image :</label>
-                                                                <input type="file" id="img" name="proImage" accept="image/*" required>
+                                                                <input type="file" id="img" name="proImage" required>
                                                             </form>
                                                         </div>
 
 
 
 
-
-                                                        <div class="container text-center">
-                                                            <button class="btn btn-outline-success mr-2">Add Product</button>
-                                                            <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal">Close</button>
+                                                        <div class="form-group">
+                                                            <div class="container text-center">
+                                                                <button class="btn btn-outline-success mr-2">Add Product</button>
+                                                                <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal">Close</button>
+                                                            </div>
                                                         </div>
 
                                                 </form>

@@ -6,33 +6,29 @@
 package com.learn.Ecom.servlets;
 
 import com.learn.Ecom.dao.CategoryDao;
+import com.learn.Ecom.dao.ProductDao;
 import com.learn.Ecom.entities.Category;
+import com.learn.Ecom.entities.Product;
 import com.learn.Ecom.helper.FactoryProvider;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author prakhar patidar
  */
 @WebServlet(name = "ProductOperationServlet", urlPatterns = {"/ProductOperationServlet"})
+@MultipartConfig
 public class ProductOperationServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -46,6 +42,8 @@ public class ProductOperationServlet extends HttpServlet {
                 //save category to DB
                 CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
                 int catId=categoryDao.saveCategory(category);
+
+                //message
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("message","Category Added Successfully : "+ catId);
                 response.sendRedirect("admin.jsp");
@@ -55,6 +53,33 @@ public class ProductOperationServlet extends HttpServlet {
 
             }
             else if(op.trim().equals("addproduct")){
+                //add product
+                String pName=request.getParameter("proTitle");
+                int pPrice=Integer.parseInt(request.getParameter("proPrice"));
+                int pDiscount=Integer.parseInt(request.getParameter("proDiscount"));
+                int pQuantity=Integer.parseInt(request.getParameter("proQuantity"));
+                String pDesc = request.getParameter("proDescription");
+                int cId=Integer.parseInt(request.getParameter("proCategory"));
+                Part part=request.getPart("proImage");
+
+                //get category by Id
+                CategoryDao cDao=new CategoryDao(FactoryProvider.getFactory());
+                Category category=cDao.getCategoryById(cId);
+
+                //new Product obj
+                Product product=new Product(pName,pDesc,part.getSubmittedFileName(),pPrice,pDiscount,pQuantity,category);
+
+                //Save to DB
+                ProductDao pDao = new ProductDao(FactoryProvider.getFactory());
+                int pId=pDao.saveProduct(product);
+
+                //Message
+                HttpSession httpSession = request.getSession();
+                httpSession.setAttribute("message","Product Added Successfully : "+ pId);
+                response.sendRedirect("admin.jsp");
+                return;
+                
+
 
             }
 

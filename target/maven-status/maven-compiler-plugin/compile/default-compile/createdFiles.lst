@@ -5,6 +5,7 @@ com\learn\Ecom\servlets\LoginServlet.class
 com\learn\Ecom\helper\FactoryProvider.class
 com\learn\Ecom\servlets\RegisterServlet.class
 com\learn\Ecom\servlets\ProductOperationServlet.class
+com\learn\Ecom\dao\ProductDao.class
 com\learn\Ecom\servlets\LogoutServlet.class
 com\learn\Ecom\dao\CategoryDao.class
 com\learn\Ecom\entities\Product.class
