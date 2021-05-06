@@ -70,13 +70,13 @@ public class ProductOperationServlet extends HttpServlet {
                 //Save to DB
                 ProductDao pDao = new ProductDao(FactoryProvider.getFactory());
                 int pId=pDao.saveProduct(product);
-                out.println("Product added");
+            
 
                 //Message
-//                HttpSession httpSession = request.getSession();
-//                httpSession.setAttribute("message","Product Added Successfully : "+ pId);
-//                response.sendRedirect("admin.jsp");
-//                return;
+               HttpSession httpSession = request.getSession();
+               httpSession.setAttribute("message","Product Added Successfully : "+ pId);
+               response.sendRedirect("admin.jsp");
+               return;
                 
 
 
