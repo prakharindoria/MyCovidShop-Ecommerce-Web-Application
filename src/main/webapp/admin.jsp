@@ -2,6 +2,8 @@
     <%@page import="com.learn.Ecom.helper.FactoryProvider"%>
         <%@page import="com.learn.Ecom.dao.CategoryDao"%>
             <%@page import="com.learn.Ecom.entities.Category"%>
+             <%@page import="com.learn.Ecom.dao.ProductDao"%>
+            <%@page import="com.learn.Ecom.entities.Product"%>
 
 
                 <%
