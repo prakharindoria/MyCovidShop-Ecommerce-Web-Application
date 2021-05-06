@@ -5,7 +5,7 @@
                 <%@page import="com.learn.Ecom.dao.ProductDao"%>
                     <%@page import="com.learn.Ecom.entities.Product"%>
 
-
+                        <!-- Validations -->
                         <%
 User user=(User)session.getAttribute("current-user");
 
