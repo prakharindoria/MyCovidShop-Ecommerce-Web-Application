@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.learn.Ecom.servlets;
 
 import com.learn.Ecom.dao.CategoryDao;
@@ -22,82 +17,78 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 @MultipartConfig
-@WebServlet(name = "ProductOperationServlet", urlPatterns = {"/ProductOperationServlet"})
+@WebServlet(name = "ProductOperationServlet", urlPatterns = { "/ProductOperationServlet" })
 public class ProductOperationServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            String op=request.getParameter("operation");
-            if(op.trim().equals("addcategory")){
+
+            String op = request.getParameter("operation");
+            if (op.trim().equals("addcategory")) {
                 String title = request.getParameter("catTitle");
                 String description = request.getParameter("catDescription");
-                Category category =new Category(title, description);
-                
-                //save category to DB
-                CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
-                int catId=categoryDao.saveCategory(category);
+                Category category = new Category(title, description);
 
-                //message
+                // save category to DB
+                CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
+                int catId = categoryDao.saveCategory(category);
+
+                // message
                 HttpSession httpSession = request.getSession();
-                httpSession.setAttribute("message","Category Added Successfully : "+ catId);
+                httpSession.setAttribute("message", "Category Added Successfully : " + catId);
                 response.sendRedirect("admin.jsp");
                 return;
 
-
-
-            }
-            else if(op.trim().equals("addproduct")){
-                //add product
+            } else if (op.trim().equals("addproduct")) {
+                // add product
                 System.out.println("In POS");
-                String pName=request.getParameter("proTitle");
-                int pPrice=Integer.parseInt(request.getParameter("proPrice"));
-                int pDiscount=Integer.parseInt(request.getParameter("proDiscount"));
-                int pQuantity=Integer.parseInt(request.getParameter("proQuantity"));
+                String pName = request.getParameter("proTitle");
+                int pPrice = Integer.parseInt(request.getParameter("proPrice"));
+                int pDiscount = Integer.parseInt(request.getParameter("proDiscount"));
+                int pQuantity = Integer.parseInt(request.getParameter("proQuantity"));
                 String pDesc = request.getParameter("proDescription");
-                int cId=Integer.parseInt(request.getParameter("proCategory"));
-                Part part=request.getPart("proImage");
+                int cId = Integer.parseInt(request.getParameter("proCategory"));
+                Part part = request.getPart("proImage");
 
-                //get category by Id
-                CategoryDao cDao=new CategoryDao(FactoryProvider.getFactory());
-                Category category=cDao.getCategoryById(cId);
+                // get category by Id
+                CategoryDao cDao = new CategoryDao(FactoryProvider.getFactory());
+                Category category = cDao.getCategoryById(cId);
 
-                //new Product obj
-                Product product=new Product(pName,pDesc,part.getSubmittedFileName(),pPrice,pDiscount,pQuantity,category);
+                // new Product obj
+                Product product = new Product(pName, pDesc, part.getSubmittedFileName(), pPrice, pDiscount, pQuantity,
+                        category);
 
-                //Save to DB
+                // Save to DB
                 ProductDao pDao = new ProductDao(FactoryProvider.getFactory());
-                int pId=pDao.saveProduct(product);
-            
+                int pId = pDao.saveProduct(product);
 
-                //Message
-               HttpSession httpSession = request.getSession();
-               httpSession.setAttribute("message","Product Added Successfully : "+ pId);
-               response.sendRedirect("admin.jsp");
-               return;
+                //pic Upload
+                //Find path to products in img folder
                 
 
 
+                // Message
+                HttpSession httpSession = request.getSession();
+                httpSession.setAttribute("message", "Product Added Successfully : " + pId);
+                response.sendRedirect("admin.jsp");
+                return;
+
             }
-
-
-
-
-           
 
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
+    // + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -108,10 +99,10 @@ public class ProductOperationServlet extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
