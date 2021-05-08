@@ -5,7 +5,10 @@ import com.learn.Ecom.dao.ProductDao;
 import com.learn.Ecom.entities.Category;
 import com.learn.Ecom.entities.Product;
 import com.learn.Ecom.helper.FactoryProvider;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -66,6 +69,22 @@ public class ProductOperationServlet extends HttpServlet {
 
                 //pic Upload
                 //Find path to products in img folder
+                String path=request.getRealPath("img")+File.separator+"products"+File.separator+part.getSubmittedFileName();
+                
+               //Uploading File(Here Photo) 
+               try{
+               FileOutputStream fos=new FileOutputStream(path);
+               InputStream is=part.getInputStream();
+               byte []data=new byte[is.available()];
+               is.read(data);
+               
+               fos.write(data);
+               
+               fos.close();
+               }catch(Exception e){
+               e.printStackTrace();
+               }
+                
                 
 
 
@@ -80,16 +99,7 @@ public class ProductOperationServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
-    // + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request  servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException      if an I/O error occurs
-     */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
