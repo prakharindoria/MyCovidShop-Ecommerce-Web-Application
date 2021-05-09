@@ -5,3 +5,10 @@
             body {
                 background: #f1f8e9;
             }
+            
+            .list-group-item.active {
+                z-index: 2;
+                color: black;
+                background: #76ff03 !important;
+                border-color: #76ff03;
+            }

@@ -5,7 +5,10 @@
  */
 package com.learn.Ecom.dao;
 
+import java.util.List;
+
 import com.learn.Ecom.entities.Product;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -37,6 +40,15 @@ public class ProductDao {
             return pId;
 
         }
+
+
+            public List<Product> getAllProducts(){
+                Session s=this.factory.openSession();
+                Query query=s.createQuery("from Product");
+                List<Product> list= query.list();
+                return list;    
+            }
+
 
     
 }
