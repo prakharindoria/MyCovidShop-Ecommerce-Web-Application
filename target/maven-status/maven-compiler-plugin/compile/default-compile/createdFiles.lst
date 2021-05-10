@@ -1,5 +1,6 @@
 com\learn\Ecom\dao\UserDao.class
 com\learn\Ecom\entities\Category.class
+com\learn\Ecom\helper\Helper.class
 com\learn\Ecom\servlets\LoginServlet.class
 com\learn\Ecom\helper\FactoryProvider.class
 com\learn\Ecom\dao\ProductDao.class

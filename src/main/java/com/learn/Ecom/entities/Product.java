@@ -120,5 +120,12 @@ public class Product {
     public void setpQuantity(int pQuantity) {
         this.pQuantity = pQuantity;
     }
+
+    public int getPriceAfterDiscount() {
+        int d=(int)((this.pPrice*this.pDiscount)/100.0);
+        return this.pPrice-d;
+    }
+
+
     
 }
