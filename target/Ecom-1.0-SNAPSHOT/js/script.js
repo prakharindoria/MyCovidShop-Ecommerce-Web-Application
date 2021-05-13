@@ -69,7 +69,12 @@ function updateCart() {
         $(".checkout-btn").addClass("disabled");
 
     } else {
+        //there is smoething in the cart
         console.log(cart);
     }
 
 }
+
+$(document).ready(function() {
+    updateCart();
+})
