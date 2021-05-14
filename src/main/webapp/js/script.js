@@ -49,6 +49,7 @@ function add_to_cart(pid, pname, price) {
 
 
     }
+    updateCart();
 }
 //manage product Quantity check if it is greater then that present in the backend. Or manage at the time of checkout
 
@@ -71,9 +72,46 @@ function updateCart() {
     } else {
         //there is smoething in the cart
         console.log(cart);
-    }
+        $(".cart-items").html(`($(cart.length))`);
+        let table = `
+        <table class='table'>
+        <thread class='thread-light'>
+        <tr>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Quantity</th>
+        <th>Action</th>
 
+        </tr>
+        
+        </table>
+        
+        
+        
+        `;
+
+        cart.map((item) => {
+            table += ` <
+                    tr >
+                    <
+                    td > $ { item.productName } < /td> <
+                    td > $ { item.productPrice } < /td> <
+                    td > $ { item.productQuantity } < /td> <
+                    td > $ { item.productQuantity * item.productPrice } < /td> <
+                    /tr>
+                `
+        })
+
+
+        table = table + ` < /table>`
+        $(".cart-body").html(table);
+
+
+    }
 }
+
+
 
 $(document).ready(function() {
     updateCart();
