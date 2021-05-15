@@ -47,7 +47,7 @@
                                                 <a class="nav-link" href="#!" data-toggle="modal" data-target="#cart">
                                                     <i class="fa fa-shopping-cart" style="font-size:22px;">
                                                     </i>
-                                                    <span>(0)</span>
+                                                    <span class="ml-0 cart-items">(0)</span>
 
                                                 </a>
                                             </li>

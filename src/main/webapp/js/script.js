@@ -49,7 +49,8 @@ function add_to_cart(pid, pname, price) {
 
 
     }
-    updateCart();
+    updateCart()
+
 }
 //manage product Quantity check if it is greater then that present in the backend. Or manage at the time of checkout
 
@@ -64,6 +65,7 @@ function updateCart() {
     let cart = JSON.parse(cartString);
 
     if (cart == null || cart.length == 0) {
+        //cart has no items
         console.log("cart is empty");
         $(".cart-items").html("(0)");
         $(".cart-body").html("<h3>Cart Is Empty. Please Add Some Items.</h3>");
@@ -72,47 +74,44 @@ function updateCart() {
     } else {
         //there is smoething in the cart
         console.log(cart);
-        $(".cart-items").html(`($(cart.length))`);
+        $(".cart-items").html(`(${cart.length})`);
         let table = `
         <table class='table'>
-        <thread class='thread-light'>
+        <thead class='thead-light'>
         <tr>
         <th>Item Name</th>
         <th>Price</th>
         <th>Quantity</th>
-        <th>Total Quantity</th>
+        <th>Total Price</th>
         <th>Action</th>
 
         </tr>
-        
-        </table>
-        
-        
+        </thead>
         
         `;
-
+        let totalPrice = 0;
         cart.map((item) => {
-            table += ` <
-                    tr >
-                    <
-                    td > $ { item.productName } < /td> <
-                    td > $ { item.productPrice } < /td> <
-                    td > $ { item.productQuantity } < /td> <
-                    td > $ { item.productQuantity * item.productPrice } < /td> <
-                    /tr>
+            table += ` <tr>
+                    <td> ${item.productName} </td> 
+                    <td> ${item.productPrice} </td> 
+                    <td> ${item.productQuantity} </td> 
+                    <td> ${item.productQuantity * item.productPrice} </td>
+                    <td><button class='btn btn-danger btn-sm'> Remove </button></td>
+                    </tr>
                 `
+            totalPrice += item.productPrice * item.productQuantity;
         })
 
 
-        table = table + ` < /table>`
+        table = table + ` 
+        <tr><td colspan='5' class='text-right font-weight-bold m-5'>Total Price: ${totalPrice}</td></tr>
+         < /table>`
         $(".cart-body").html(table);
 
 
     }
 }
 
-
-
 $(document).ready(function() {
-    updateCart();
+    updateCart()
 })
