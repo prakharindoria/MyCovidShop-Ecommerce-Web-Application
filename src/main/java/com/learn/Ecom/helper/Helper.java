@@ -6,6 +6,11 @@
 package com.learn.Ecom.helper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  *
@@ -24,5 +29,25 @@ public class Helper {
         }
         else return (desc+"...");
     }
+
+    public static Map<String,Long> getCounts(SessionFactory sf){
+        Session session=sf.openSession();
+        String numberOfUsers="Select count(*) from User";
+        String numberOfProducts="Select count(*) from Product";
+        Query q1=session.createQuery(numberOfUsers);
+        Query q2=session.createQuery(numberOfProducts);
+
+        Long userCount=(Long) q1.list().get(0);
+        Long productCount=(Long) q2.list().get(0);
+
+        Map<String,Long> map=new HashMap<String,Long>();
+        map.put("userCount", userCount);
+        map.put("productCount", productCount);
+
+        session.close();
+        return map;
+
+    }
+
     
 }

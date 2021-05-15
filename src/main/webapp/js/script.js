@@ -49,7 +49,7 @@ function add_to_cart(pid, pname, price) {
 
 
     }
-    updateCart()
+    updateCart();
 
 }
 //manage product Quantity check if it is greater then that present in the backend. Or manage at the time of checkout
@@ -69,7 +69,7 @@ function updateCart() {
         console.log("cart is empty");
         $(".cart-items").html("(0)");
         $(".cart-body").html("<h3>Cart Is Empty. Please Add Some Items.</h3>");
-        $(".checkout-btn").addClass("disabled");
+        $(".checkout-btn").attr('disabled', true);
 
     } else {
         //there is smoething in the cart
@@ -84,10 +84,8 @@ function updateCart() {
         <th>Quantity</th>
         <th>Total Price</th>
         <th>Action</th>
-
         </tr>
         </thead>
-        
         `;
         let totalPrice = 0;
         cart.map((item) => {
@@ -96,8 +94,9 @@ function updateCart() {
                     <td> ${item.productPrice} </td> 
                     <td> ${item.productQuantity} </td> 
                     <td> ${item.productQuantity * item.productPrice} </td>
-                    <td><button class='btn btn-danger btn-sm'> Remove </button></td>
+                    <td><button onclick='deleteItemFromCart(${item.productId})' class='btn btn-danger btn-sm'> Remove </button></td>
                     </tr>
+                    
                 `
             totalPrice += item.productPrice * item.productQuantity;
         })
@@ -107,6 +106,7 @@ function updateCart() {
         <tr><td colspan='5' class='text-right font-weight-bold m-5'>Total Price: ${totalPrice}</td></tr>
          < /table>`
         $(".cart-body").html(table);
+        $(".checkout-btn").attr('disabled', false);
 
 
     }
@@ -115,3 +115,15 @@ function updateCart() {
 $(document).ready(function() {
     updateCart()
 })
+
+//delete item from cart
+function deleteItemFromCart(pid) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    let newcart = cart.filter((item) => item.productId != pid);
+    localStorage.setItem('cart', JSON.stringify(newcart))
+    updateCart()
+}
+
+function goToCheckout() {
+    window.location = "checkout.jsp"
+}
