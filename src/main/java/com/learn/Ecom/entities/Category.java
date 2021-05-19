@@ -10,22 +10,24 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
-    
+    //Data Members
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int categoryId;
+
     private String categoryTitle;
     private String categoryDescription;
     
     @OneToMany(mappedBy="category")
     private List<Product> products=new ArrayList<>();  //Can use HashSet if number of products Increase.
     
-
+    //toString
     @Override
     public String toString() {
         return "Category{" + "categoryId=" + categoryId + ", categoryTitle=" + categoryTitle + ", categoryDescription=" + categoryDescription + '}';
     }
 
+    //Getters and Setters
     public int getCategoryId() {
         return categoryId;
     }
@@ -59,7 +61,7 @@ public class Category {
     }
     
     
-
+    //Constructors
     public Category(String categoryTitle, String categoryDescription,List<Product> products) {
         this.categoryTitle = categoryTitle;
         this.categoryDescription = categoryDescription;
