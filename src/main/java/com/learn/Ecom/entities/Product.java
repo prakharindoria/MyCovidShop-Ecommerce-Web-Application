@@ -12,9 +12,11 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Product {
+    //Data Members
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int pId;
+
     private String pName;
     
     @Column(length=3000)
@@ -28,43 +30,13 @@ public class Product {
     @ManyToOne
     private Category category;
 
-    public Product(String pName, String pDesc, String pPhoto, int pPrice, int pDiscount,int pQuantity,Category category) {
-        this.pName = pName;
-        this.pDesc = pDesc;
-        this.pPhoto = pPhoto;
-        this.pPrice = pPrice;
-        this.pDiscount = pDiscount;
-        this.category = category;
-        this.pQuantity = pQuantity;
-    }
-    
-    
-    
-    
-    
-    
-    
+    //to String
     @Override
     public String toString() {
         return "Product{" + "pId=" + pId + ", pName=" + pName + ", pDesc=" + pDesc + ", pPhoto=" + pPhoto + ", pPrice=" + pPrice + ", pDiscount=" + pDiscount + ", pQuantity=" + pQuantity + '}';
     }
-    
-    
 
-    public Product(int pId, String pName, String pDesc, String pPhoto, int pPrice, int pDiscount, int pQuantity) {
-        this.pId = pId;
-        this.pName = pName;
-        this.pDesc = pDesc;
-        this.pPhoto = pPhoto;
-        this.pPrice = pPrice;
-        this.pDiscount = pDiscount;
-        this.pQuantity = pQuantity;
-    }
-
-    public Product() {
-    }
-    
-
+    //Getters and Setters
     public int getpId() {
         return pId;
     }
@@ -124,6 +96,30 @@ public class Product {
     public int getPriceAfterDiscount() {
         int d=(int)((this.pPrice*this.pDiscount)/100.0);
         return this.pPrice-d;
+    }
+
+    //Constructors
+    public Product(int pId, String pName, String pDesc, String pPhoto, int pPrice, int pDiscount, int pQuantity) {
+        this.pId = pId;
+        this.pName = pName;
+        this.pDesc = pDesc;
+        this.pPhoto = pPhoto;
+        this.pPrice = pPrice;
+        this.pDiscount = pDiscount;
+        this.pQuantity = pQuantity;
+    }
+
+    public Product(String pName, String pDesc, String pPhoto, int pPrice, int pDiscount,int pQuantity,Category category) {
+        this.pName = pName;
+        this.pDesc = pDesc;
+        this.pPhoto = pPhoto;
+        this.pPrice = pPrice;
+        this.pDiscount = pDiscount;
+        this.category = category;
+        this.pQuantity = pQuantity;
+    }
+
+    public Product() {
     }
 
 

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
+    //Data Members
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int userId;
@@ -42,6 +43,13 @@ public class User {
         this.userType = userType;
     }
 
+    //to String
+    @Override
+    public String toString() {
+        return "Category{" + "userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userPassword=" + userPassword + ", uesrPhone=" + uesrPhone + ", userPic=" + userPic + ", userAddress=" + userAddress + '}';
+    }
+
+    //Constructors
     public User(int userId, String userName, String userEmail, String userPassword, String uesrPhone, String userPic, String userAddress,String userType) {
         this.userId = userId;
         this.userName = userName;
@@ -68,6 +76,7 @@ public class User {
     public User() {
     }
 
+    //Getters and setters
     public int getUserId() {
         return userId;
     }
@@ -124,10 +133,7 @@ public class User {
         this.userAddress = userAddress;
     }
 
-    @Override
-    public String toString() {
-        return "Category{" + "userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userPassword=" + userPassword + ", uesrPhone=" + uesrPhone + ", userPic=" + userPic + ", userAddress=" + userAddress + '}';
-    }
+    
     
     
     
