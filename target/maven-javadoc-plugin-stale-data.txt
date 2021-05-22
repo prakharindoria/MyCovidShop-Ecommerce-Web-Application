@@ -1,0 +1,20 @@
+cmd.exe
+/X
+/C
+""C:\Program Files\Java\jdk1.8.0_241\jre\..\bin\javadoc.exe" @options @argfile"
+D:\My Netbeans Apps\Ecom\target\site\apidocs\allclasses-frame.html = 1621673821419
+D:\My Netbeans Apps\Ecom\target\site\apidocs\allclasses-noframe.html = 1621673821421
+D:\My Netbeans Apps\Ecom\target\site\apidocs\argfile = 1621673818729
+D:\My Netbeans Apps\Ecom\target\site\apidocs\constant-values.html = 1621673821124
+D:\My Netbeans Apps\Ecom\target\site\apidocs\deprecated-list.html = 1621673821417
+D:\My Netbeans Apps\Ecom\target\site\apidocs\help-doc.html = 1621673821434
+D:\My Netbeans Apps\Ecom\target\site\apidocs\index-all.html = 1621673821412
+D:\My Netbeans Apps\Ecom\target\site\apidocs\index.html = 1621673821423
+D:\My Netbeans Apps\Ecom\target\site\apidocs\options = 1621673818726
+D:\My Netbeans Apps\Ecom\target\site\apidocs\overview-frame.html = 1621673821049
+D:\My Netbeans Apps\Ecom\target\site\apidocs\overview-summary.html = 1621673821427
+D:\My Netbeans Apps\Ecom\target\site\apidocs\overview-tree.html = 1621673821302
+D:\My Netbeans Apps\Ecom\target\site\apidocs\package-list = 1621673821046
+D:\My Netbeans Apps\Ecom\target\site\apidocs\script.js = 1621673821439
+D:\My Netbeans Apps\Ecom\target\site\apidocs\serialized-form.html = 1621673821148
+D:\My Netbeans Apps\Ecom\target\site\apidocs\stylesheet.css = 1621673821438
