@@ -19,7 +19,7 @@ public class CategoryDao {
     public CategoryDao(SessionFactory factory) {
         this.factory = factory;
     }
-
+    //Save Category in Database
     public int saveCategory(Category category) {
         Session session = this.factory.openSession();
         Transaction tx = session.beginTransaction();
@@ -29,6 +29,7 @@ public class CategoryDao {
         return catId;
     }
 
+    //get the Categories List
     public List<Category> getCategories() {
         Session session = this.factory.openSession();
         Query query = session.createQuery("from Category");
@@ -36,6 +37,7 @@ public class CategoryDao {
         return list;
     }
 
+    //Get Category By ID
     public Category getCategoryById(int cId) {
         Category cat = null;
         try {
