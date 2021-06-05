@@ -10,7 +10,7 @@
 
     <body>
         <%@include file="components/navbar.jsp" %>
-            <h1>Contact Page for Click To Buy.</h1>
+            <h1>Contact Page for MyCovidShop.</h1>
             <%@include file="components/common_modals.jsp"%>
     </body>
 

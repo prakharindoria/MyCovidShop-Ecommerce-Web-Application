@@ -36,33 +36,36 @@ if(user==null){
                             <!--Form Details  -->
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="text-center mb-3">Your Details For Order</h3>
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input value="<%= user.getUserEmail()%>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Your Name</label>
-                                            <input value="<%= user.getUserName()%>" type="text" id="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Your Contact</label>
-                                            <input value="<%= user.getUesrPhone()%>" type="number" id="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Contact Number">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">Your Shipping Address</label>
-                                            <textarea value="<%= user.getUserAddress()%>" class="form-control" id="exampleFormControlTextarea1" placeholder="Enter Your Address" rows="3"></textarea>
-                                        </div>
+                                    <%@include file="components/message.jsp" %>
+                                        <h3 class="text-center mb-3">Your Details For Order</h3>
+                                        <form action="OrderServlet" method="post">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input name="useremail" value="<%= user.getUserEmail()%>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Your Name</label>
+                                                <input name="username" value="<%= user.getUserName()%>" type="text" id="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Your Contact</label>
+                                                <input name="usercontact" value="<%= user.getUesrPhone()%>" type="number" id="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Contact Number">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Your Shipping Address</label>
+                                                <textarea name="useraddress" value="<%= user.getUserAddress()%>" class="form-control" id="exampleFormControlTextarea1" placeholder="Enter Your Address" rows="3"></textarea>
+                                            </div>
+
+                                            <div class="text-center mb-2" style="font-size: 12px">As of now all orders are cash on delivery.</div>
+
+                                            <div class="container text-center">
+                                                <button type="submit" class="btn btn-outline-success mr-1">Order Now</button>
+                                                <button type="reset" class="btn btn-outline-primary">Continue Shopping</button>
+                                            </div>
 
 
-                                        <div class="container text-center">
-                                            <button class="btn btn-outline-success mr-1">Order Now</button>
-                                            <button class="btn btn-outline-primary">Continue Shopping</button>
-                                        </div>
 
-
-                                    </form>
+                                        </form>
                                 </div>
                             </div>
                         </div>

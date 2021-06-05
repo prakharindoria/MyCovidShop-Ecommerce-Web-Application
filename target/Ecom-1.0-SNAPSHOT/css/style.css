@@ -1,5 +1,5 @@
             .custom-bg {
-                background: #4285F4 !important;
+                background: #00BFFF!important;
             }
             
             body {
@@ -9,8 +9,8 @@
             .list-group-item.active {
                 z-index: 2;
                 color: black;
-                background: #76ff03 !important;
-                border-color: #76ff03;
+                background:#00BFFF!important;
+                border-color: #00BFFF;
             }
             
             .discount-label {
