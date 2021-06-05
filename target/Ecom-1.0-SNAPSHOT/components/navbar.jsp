@@ -16,12 +16,18 @@
         </button>
 
                                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                        <ul class="navbar-nav mr-auto">
+                                        <ul class="navbar-nav ml-10 mr-auto">
                                             <li class="nav-item active">
                                                 <a class="nav-link" href="index.jsp">Home<span class="sr-only">(current)</span></a>
                                             </li>
                                             <li class="nav-item">
+                                                <a class="nav-link" href="index.jsp">Shop</a>
+                                            </li>
+                                            <li class="nav-item">
                                                 <a class="nav-link" href="about.jsp">About</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="contact.jsp">Contact</a>
                                             </li>
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,14 +49,6 @@
 
                                         <ul class="navbar-nav ml-auto">
 
-                                            <li class="nav-item active">
-                                                <a class="nav-link" href="#!" data-toggle="modal" data-target="#cart">
-                                                    <i class="fa fa-shopping-cart" style="font-size:22px;">
-                                                    </i>
-                                                    <span class="ml-0 cart-items">(0)</span>
-
-                                                </a>
-                                            </li>
 
 
 
@@ -91,6 +89,15 @@
 
                     }
                 %>
+
+                                                            <li class="nav-item active">
+                                                                <a class="nav-link" href="#!" data-toggle="modal" data-target="#cart">
+                                                                    <i class="fa fa-shopping-cart" style="font-size:22px;">
+                        </i>
+                                                                    <span class="ml-0 cart-items">(0)</span>
+
+                                                                </a>
+                                                            </li>
 
 
 
