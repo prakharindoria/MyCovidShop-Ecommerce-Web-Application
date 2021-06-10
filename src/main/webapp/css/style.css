@@ -3,13 +3,13 @@
             }
             
             body {
-                background: #f1f8e9;
+                background: #ffffff;
             }
             
             .list-group-item.active {
                 z-index: 2;
                 color: black;
-                background:#00BFFF!important;
+                background: #00BFFF!important;
                 border-color: #00BFFF;
             }
             

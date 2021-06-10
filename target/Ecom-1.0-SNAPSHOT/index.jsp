@@ -21,6 +21,7 @@
                                                 background: #e2e2e2 !important;
                                                 cursor: pointer;
                                             }
+                                            
                                         </style>
                                 </head>
 
@@ -45,7 +46,7 @@
                                                     CategoryDao cdao=new CategoryDao(FactoryProvider.getFactory());
                                                     List<Category> clist=cdao.getCategories();
                                                     
-                                                    %>
+                                                %>
 
 
 

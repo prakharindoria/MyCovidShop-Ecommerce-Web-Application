@@ -230,6 +230,7 @@ else if(user.getUserType().equals("normal")){
                                                                 $('[data-toggle="tooltip"]').tooltip()
                                                             })
                                                         </script>
+                                                          
                                             </body>
 
                                             </html>
