@@ -31,12 +31,10 @@ public class UserDao {
             q.setParameter("e", email);
             q.setParameter("p", password);
             user = (User) q.uniqueResult();
-
             session.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return user;
     }
 
