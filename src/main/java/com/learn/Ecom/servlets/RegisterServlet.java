@@ -21,6 +21,7 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             try{
+                HttpSession httpSession=request.getSession();
                 String userName=request.getParameter("user_name");
                 String userEmail=request.getParameter("user_email");
                 String userPassword=request.getParameter("user_password");
@@ -28,7 +29,8 @@ public class RegisterServlet extends HttpServlet {
                 String userAddress=request.getParameter("user_address");
                 //Server Side Validations can be applied.
                 if(userName.isEmpty() || userEmail.isEmpty() ||  userPassword.isEmpty() || userPhone.isEmpty() || userPhone.length()>10 || userAddress.isEmpty()){
-                out.println("Feilds Empty");
+                httpSession.setAttribute("message","Fields Empty");
+                response.sendRedirect("register.jsp");
                 return;
                 }
                 
@@ -41,7 +43,7 @@ public class RegisterServlet extends HttpServlet {
                 tx.commit();
                 hibernateSession.close();
                 
-                HttpSession httpSession=request.getSession();
+                
                 httpSession.setAttribute("message","Registration Succesful ! Your UserId is : "+userId);
                 response.sendRedirect("register.jsp");
                 return;
