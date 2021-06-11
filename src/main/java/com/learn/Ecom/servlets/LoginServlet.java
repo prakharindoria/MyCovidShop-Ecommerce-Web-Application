@@ -20,12 +20,14 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            HttpSession httpSession =request.getSession();
             String userEmail=request.getParameter("email");
             String userPassword=request.getParameter("password");
 
             //validations
             if(userEmail.isEmpty() || userPassword.isEmpty()){
-                out.println("Fields Empty");
+                httpSession.setAttribute("message","Fields Empty.");
+                response.sendRedirect("login.jsp");
                 return;
             }
 
@@ -33,7 +35,7 @@ public class LoginServlet extends HttpServlet {
             UserDao userDao = new UserDao(FactoryProvider.getFactory());
             User user = userDao.getUserByEmailAndPassword(userEmail, userPassword);
 
-            HttpSession httpSession =request.getSession();
+            
 
             if(user==null){
                 httpSession.setAttribute("message","Invalid Email or Password.");
